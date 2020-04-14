@@ -1,0 +1,55 @@
+
+# user {{{
+[user]
+    name = Charlie Crawford
+    email = ccrawford@pagerduty.com
+
+#}}}
+# color {{{
+[color]
+    branch = auto
+    diff = auto
+    status = auto
+
+[color "branch"]
+    current = red reverse
+    local = blue
+    remote = green
+
+[color "diff"]
+    meta = yellow
+    frag = magenta
+    old = red bold
+    new = green
+    plain = white
+
+[color "status"]
+    added = yellow
+    changed = green
+    untracked = cyan
+
+# }}}
+# alias {{{
+[alias]
+    # basic {{{
+    st = status -s
+    cl = clone
+    ci = commit
+    co = checkout
+    br = branch
+    r = reset
+    cp = cherry-pick
+    gr = grep -Ii
+    # }}}
+    # log commands {{{
+    ls = log --pretty=format:"%C(green)%h\\ %C(yellow)[%ad]%Cred%d\\ %Creset%s%Cblue\\ [%an]" --decorate --date=relative
+    ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [a:%an,c:%cn]" --decorate --numstat
+    lc  = "!f() { git ll "$1"^.."$1"; }; f"
+    lnc = log --pretty=format:"%h\\ %s\\ [%cn]"
+    fl = log -u
+    filelog = log -u
+    # }}}
+    # list all aliases
+    la = "!git config -l | grep alias | cut -c 7-"
+    # }}}
+# }}}
