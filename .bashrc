@@ -1,4 +1,6 @@
 
+[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
+
 # durdn/cfg related commands {{{
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 # }}}
@@ -15,4 +17,12 @@ if [ $(uname) == "Darwin" ]; then
   alias fnd='open -a Finder'
   # }}}
 fi
+# }}}
+
+if [ -f /usr/local/opt/asdf/asdf.sh ]; then
+  . /usr/local/opt/asdf/asdf.sh
+fi
+
+# Liquid Prompt {{{
+  [[ $- = *i* ]] && source $HOME/.liquidprompt
 # }}}
