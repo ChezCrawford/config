@@ -3,7 +3,14 @@
 
 # durdn/cfg related commands {{{
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+# }}
+
+# Git Shortcuts {{{
+alias gs='git status'
 # }}}
+
+alias dk='docker'
+alias dkc='docker-compose'
 
 # OSX specific config {{{
 if [ $(uname) == "Darwin" ]; then
@@ -24,5 +31,12 @@ if [ -f /usr/local/opt/asdf/asdf.sh ]; then
 fi
 
 # Liquid Prompt {{{
+  LP_ENABLE_SVN=0
+  LP_ENABLE_FOSSIL=0
+  LP_ENABLE_BZR=0
+  LP_ENABLE_BATT=0
+  LP_ENABLE_LOAD=0
+  LP_USER_ALWAYS=0
+  LP_HOSTNAME_ALWAYS=0
   [[ $- = *i* ]] && source $HOME/.liquidprompt
 # }}}
