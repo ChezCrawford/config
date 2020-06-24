@@ -7,6 +7,8 @@ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 # Git Shortcuts {{{
 alias gs='git status'
+alias gfap='git fetch --all --prune'
+alias gp='git pull'
 # }}}
 
 alias dk='docker'
@@ -23,6 +25,9 @@ if [ $(uname) == "Darwin" ]; then
   alias less='less -R'
   alias fnd='open -a Finder'
   # }}}
+  
+  export PATH="/usr/local/sbin:$PATH"
+
 fi
 # }}}
 
@@ -38,5 +43,8 @@ fi
   LP_ENABLE_LOAD=0
   LP_USER_ALWAYS=0
   LP_HOSTNAME_ALWAYS=0
+  LP_PATH_KEEP=0
+  LP_PATH_LENGTH=20
+  
   [[ $- = *i* ]] && source $HOME/.liquidprompt
 # }}}
