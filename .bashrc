@@ -9,6 +9,8 @@ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias gs='git status'
 alias gfap='git fetch --all --prune'
 alias gp='git pull'
+alias gsp='git stash pop'
+gssa() { git add . && git stash save $1; }
 # }}}
 
 alias dk='docker'
@@ -24,15 +26,19 @@ if [ $(uname) == "Darwin" ]; then
   alias la='ls -alG'
   alias less='less -R'
   alias fnd='open -a Finder'
+  
+  alias utcdttm='date -u +"%Y-%m-%dT%H:%M:%SZ"'
   # }}}
   
   export PATH="/usr/local/sbin:$PATH"
 
+  export GPG_TTY=$(tty)
+
 fi
 # }}}
 
-if [ -f /usr/local/opt/asdf/asdf.sh ]; then
-  . /usr/local/opt/asdf/asdf.sh
+if [ -f /usr/local/opt/asdf/libexec/asdf.sh ]; then
+  . /usr/local/opt/asdf/libexec/asdf.sh
 fi
 
 # Liquid Prompt {{{
@@ -46,5 +52,13 @@ fi
   LP_PATH_KEEP=0
   LP_PATH_LENGTH=20
   
-  [[ $- = *i* ]] && source $HOME/.liquidprompt
+#  [[ $- = *i* ]] && source $HOME/.liquidprompt
+  if [ -f /usr/local/share/liquidprompt ]; then
+    . /usr/local/share/liquidprompt
+  fi
 # }}}
+
+# Go
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+
