@@ -53,8 +53,8 @@ fi
   LP_PATH_LENGTH=20
   
 #  [[ $- = *i* ]] && source $HOME/.liquidprompt
-  if [ -f /usr/local/share/liquidprompt ]; then
-    . /usr/local/share/liquidprompt
+  if [ -f /opt/homebrew/share/liquidprompt ]; then
+    . /opt/homebrew/share/liquidprompt
   fi
 # }}}
 
