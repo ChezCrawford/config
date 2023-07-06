@@ -2,7 +2,8 @@
 # user {{{
 [user]
     name = Charlie Crawford
-    email = ccrawford@pagerduty.com
+    email = char507@gmail.com
+	signingkey = A210232F8C1D7A0B
 
 #}}}
 # color {{{
@@ -55,3 +56,7 @@
 # }}}
 [url "git@github.com:"]
     insteadOf = https://github.com/
+[init]
+	defaultBranch = main
+[commit]
+	gpgsign = true
