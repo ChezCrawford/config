@@ -1,6 +1,4 @@
 
-[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
-
 # durdn/cfg related commands {{{
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 # }}
@@ -34,16 +32,20 @@ if [ $(uname) == "Darwin" ]; then
 
   export GPG_TTY=$(tty)
 
+  if [ -f /opt/homebrew/bin/brew ]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+  fi
+
+  if [ -f /usr/local/bin/brew ]; then
+    eval "$(/usr/local/bin/brew shellenv)"
+  fi
+
+  [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
+  [[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
 fi
 # }}}
 
-if [ -f /opt/homebrew/bin/brew ]; then
-  eval "$(/opt/homebrew/bin/brew shellenv)"
-fi
 
-if [ -f /usr/local/bin/brew ]; then
-  eval "$(/usr/local/bin/brew shellenv)"
-fi
 
 if [ -f /usr/local/opt/asdf/libexec/asdf.sh ]; then
   . /usr/local/opt/asdf/libexec/asdf.sh
@@ -69,4 +71,3 @@ fi
 # Go
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
-
