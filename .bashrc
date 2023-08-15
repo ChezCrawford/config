@@ -41,6 +41,7 @@ if [ $(uname) == "Darwin" ]; then
   fi
 
   [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
+  # Completions go in /opt/homebrew/etc/bash_completion.d/
   [[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
 fi
 # }}}
@@ -77,3 +78,9 @@ fi
 # Go
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
+
+# PD Stuff {{{
+if [ -f ~/.bashpd ]; then
+  source ~/.bashpd
+fi
+# }}}
