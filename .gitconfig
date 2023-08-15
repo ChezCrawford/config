@@ -2,9 +2,8 @@
 # user {{{
 [user]
     name = Charlie Crawford
-    email = char507@gmail.com
-    signingkey = A210232F8C1D7A0B
-
+    email = ccrawford@pagerduty.com
+    signingkey = D140F6D34E05937D
 #}}}
 # color {{{
 [color]
@@ -60,4 +59,5 @@
     defaultBranch = main
 [commit]
     gpgsign = true
-
+[core]
+	excludesfile = /Users/ccrawford/.gitignore_global
