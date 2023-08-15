@@ -68,6 +68,12 @@ fi
   fi
 # }}}
 
+# Starship {{{
+  if [ -f /usr/local/bin/starship ]; then
+    eval "$(starship init bash)"
+  fi
+# }}}
+
 # Go
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
