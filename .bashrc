@@ -12,7 +12,7 @@ gssa() { git add . && git stash save $1; }
 # }}}
 
 alias dk='docker'
-alias dkc='docker-compose'
+alias dkc='docker compose'
 
 # OSX specific config {{{
 if [ $(uname) == "Darwin" ]; then
@@ -46,7 +46,9 @@ if [ $(uname) == "Darwin" ]; then
 fi
 # }}}
 
-
+# asdf
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+. <(asdf completion bash)
 
 if [ -f /usr/local/opt/asdf/libexec/asdf.sh ]; then
   . /usr/local/opt/asdf/libexec/asdf.sh
@@ -70,7 +72,7 @@ fi
 # }}}
 
 # Starship {{{
-  if [ -f /usr/local/bin/starship ]; then
+  if [ -f /usr/local/bin/starship ] || [ -f /opt/homebrew/bin/starship ]; then
     eval "$(starship init bash)"
   fi
 # }}}
@@ -79,8 +81,12 @@ fi
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
+# For pipx
+export PATH="$PATH:$HOME/.local/bin"
+
 # PD Stuff {{{
 if [ -f ~/.bashpd ]; then
   source ~/.bashpd
 fi
 # }}}
+
